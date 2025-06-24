@@ -1,13 +1,16 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import LoginForm from './components/Login/LoginForm';
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
-  )
-}
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
 
-export default App
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+}
